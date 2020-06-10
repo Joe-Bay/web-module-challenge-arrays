@@ -181,7 +181,7 @@ function getAverageWordLength(arr){
     }
     return Math.round(counter / arr.length);
 }
-console.log(getAverageWordLength(originalFlavors));
+//console.log(getAverageWordLength(originalFlavors));
 
 /* STRETCH 2: Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors.
 
@@ -264,8 +264,16 @@ var regionalFlavors = ["Pink Bubblegum",
     "Chocolate Chocolate Chip Cheesecake",
     "Caramel 'n' Cookies"]
 
-function getRandomFlavors(/*code here*/){
+function getRandomFlavors(arrOne, arrTwo, arrThree, arrFour){ 
+    let random = [], start;
+    random.push(...arrOne, ...arrTwo, ...arrThree, ...arrFour);
+    let randomFlavors = [];
+    for( i = 0; i  < 31; i++){
+        start = Math.floor(Math.random() * random.length);
+        randomFlavors.push(random.splice(start, 1)[0]);
 
-    /*code here*/
-
+        
+    }
+return randomFlavors;
 }
+console.log(getRandomFlavors(regionalFlavors, seasonalFlavors, originalFlavors, newFlavors));
